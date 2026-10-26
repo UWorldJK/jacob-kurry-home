@@ -107,7 +107,7 @@ export const workloads: Workload[] = [
     labels: { role: 'founder', stage: 'building' },
     events: [
       'Founded Janus, a digital asset vault that shows a family their whole online footprint (banks, investments, loans, insurance, subscriptions) as one picture, so they can plan who will need access to what.',
-      'Created an NLP model that finds the institutions behind a family’s email, and links banks through Plaid, stored in Supabase.',
+      'Created an NLP model that reads a family’s email to find every institution they use; banks link directly through Plaid, with everything stored in Supabase.',
       'Runs an AI agent on a cron job that keeps checking for new accounts, so the picture stays current without anyone pressing a button.',
       'Structured the app as a TypeScript monorepo: React + Vite frontend and an Express backend with Jest unit and integration tests.',
       'Containerized both services, with GitHub Actions publishing images to Docker Hub and Helm charts with Istio VirtualServices for Kubernetes.',
