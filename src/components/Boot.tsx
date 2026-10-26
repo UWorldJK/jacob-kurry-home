@@ -60,9 +60,10 @@ export function Boot() {
           {'  '}<span className="k">name</span>:
         </pre>
         <h1 className="hero-name">
-          jacob
-          <br />
-          kurry<span className="cursor big" aria-hidden />
+          <span>jacob</span>
+          <span>
+            kurry<span className="cursor big" aria-hidden />
+          </span>
         </h1>
         <pre className="yaml">
           {'  '}<span className="k">labels</span>:{'\n'}

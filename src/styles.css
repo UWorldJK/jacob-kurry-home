@@ -815,3 +815,13 @@ kbd {
     transition: none;
   }
 }
+
+/* Name steps down to the right: "kurry" sits diagonally under "jacob". */
+.hero-name > span {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-name > span + span {
+  margin-left: 1.9em;
+}
