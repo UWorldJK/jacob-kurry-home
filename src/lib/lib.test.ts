@@ -40,7 +40,7 @@ describe('shell', () => {
   it('lists pods with a header row', () => {
     const { lines } = run('kubectl get pods');
     expect(lines[0]).toMatch(/^NAME\s+READY\s+STATUS$/);
-    expect(lines).toHaveLength(6);
+    expect(lines).toHaveLength(8);
   });
 
   it('tab-completes to the longest common prefix', () => {
