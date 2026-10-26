@@ -159,7 +159,7 @@ p {
 
 .split {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(440px, 36%);
+  grid-template-columns: minmax(0, 1fr) minmax(415px, calc(36% - 25px));
 }
 
 .story {
