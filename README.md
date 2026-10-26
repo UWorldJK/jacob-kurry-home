@@ -27,3 +27,5 @@ Uploads `dist/` to `s3://jk-home-about.jacobkurry.com`. It never deletes objects
 ## Keys
 
 `c` opens the CV, `e` starts an email, `/` jumps to the shell. The shell knows `help`, `whoami`, `kubectl get pods`, `kubectl describe pod <name>`, `kubectl logs <name>`, `open cv`, `mail`, `github`, `clear`.
+
+SO SICK
