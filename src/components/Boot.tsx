@@ -66,7 +66,7 @@ export function Boot() {
         </h1>
         <pre className="yaml">
           {'  '}<span className="k">labels</span>:{'\n'}
-          {'    '}<span className="k">focus</span>: infrastructure{'\n'}
+          {'    '}<span className="k">focus</span>: backend-and-infra{'\n'}
           {'    '}<span className="k">home</span>: boulder-co{'\n'}
           {'    '}<span className="k">graduating</span>: may-2027{'\n'}
           <span className="k">spec</span>:{'\n'}

@@ -22,7 +22,7 @@ export const profile = {
   location: 'Boulder, CO',
   github: 'https://github.com/UWorldJK',
   cv: '/cv.pdf',
-  tagline: 'Infrastructure engineer. I build Kubernetes operators, custom controllers, and the networks they reconcile.',
+  tagline: 'Backend & infrastructure engineer. I build distributed services and the infrastructure that connects, orchestrates, and scales them.',
   education: {
     school: 'University of Colorado Boulder',
     degree: 'B.S. Computer Science, French',
