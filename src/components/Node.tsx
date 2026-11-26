@@ -12,7 +12,7 @@ export function Node() {
       <p className="cmd">
         <span className="prompt">$</span> kubectl describe node boulder-co
       </p>
-      <h2 id="node-title" className="title">The node</h2>
+      <h2 id="node-title" className="title">About me</h2>
       <dl className="describe">
         <dt>Name:</dt>
         <dd>boulder-co</dd>

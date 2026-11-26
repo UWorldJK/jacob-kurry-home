@@ -44,7 +44,7 @@ export function WatchPane() {
               const w = workloads.find((x) => x.id === id)!;
               const p = pods[id];
               return (
-                <tr key={id} className={active === id ? 'is-active' : ''}>
+                <tr key={id} className={active === id ? 'is-active' : ''} onClick={() => scrollToId(id)}>
                   <td>
                     <button className="pod-link" onClick={() => scrollToId(id)}>
                       <span className="name-full">{w.podName}</span>
@@ -62,6 +62,7 @@ export function WatchPane() {
             })}
           </tbody>
         </table>
+        <p className="watch-hint dim"># click a pod to see that experience</p>
 
         <p className="cmd watch-cmd">
           <span className="prompt">$</span> kubectl get events -w
