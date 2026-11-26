@@ -84,6 +84,17 @@ export function ClusterProvider({ children }: { children: ReactNode }) {
     [scheduleOne],
   );
 
+  // Bring every workload up as soon as the page loads, one after another, so the watch pane is a full index.
+  useEffect(() => {
+    const ids = workloads.map((w) => w.id);
+    if (reduced) {
+      ids.forEach(scheduleOne);
+      return;
+    }
+    const started = ids.map((id, i) => window.setTimeout(() => scheduleOne(id), 400 + i * 220));
+    return () => started.forEach(clearTimeout);
+  }, [reduced, scheduleOne]);
+
   const value = useMemo(
     () => ({ pods, order, events, active, schedule, setActive }),
     [pods, order, events, active, schedule],
@@ -98,7 +109,7 @@ export function useCluster() {
 }
 
 /**
- * Schedules a pod the first time its section scrolls into view, and tracks the active section.
+ * Schedules a pod the first time its section scrolls into view (if page load has not already), and tracks the active section.
  * `scheduleId` names the workload to bring up (null for sections that are not workloads).
  */
 export function useWorkloadSection(id: string, ref: RefObject<HTMLElement>, scheduleId: string | null = id) {

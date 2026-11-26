@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'motion/react';
 import { profile } from '../content';
+import { ascii } from '../lib/ascii';
 import { useWorkloadSection } from '../lib/cluster';
 
 const COMMAND = 'kubectl apply -f jacob-kurry.yaml';
+const NAME = ['jacob', 'kurry'].map(ascii);
 const OUTPUT = ['namespace/jacob-kurry created', 'node/boulder-co labeled', 'engineer.people.io/jacob-kurry created'];
 
 export function Boot() {
@@ -59,11 +61,12 @@ export function Boot() {
           <span className="k">metadata</span>:{'\n'}
           {'  '}<span className="k">name</span>:
         </pre>
-        <h1 className="hero-name">
-          <span>jacob</span>
-          <span>
-            kurry<span className="cursor big" aria-hidden />
-          </span>
+        <h1 className="hero-name" aria-label={profile.displayName}>
+          {NAME.map((art) => (
+            <pre key={art} aria-hidden>
+              {art}
+            </pre>
+          ))}
         </h1>
         <pre className="yaml">
           {'  '}<span className="k">labels</span>:{'\n'}
@@ -76,13 +79,13 @@ export function Boot() {
         <p className="summary">{profile.tagline}</p>
         <div className="actions">
           <a className="btn primary" href={profile.cv} target="_blank" rel="noreferrer">
-            <span className="prompt">$</span> open cv.pdf
+            <span className="prompt">$</span> open cv
           </a>
           <a className="btn" href={`mailto:${profile.email}`}>
             <span className="prompt">$</span> mail {profile.email}
           </a>
         </div>
-        <p className="hint dim"># scroll to schedule the workloads</p>
+        <p className="hint dim"># scroll, or click a pod, to see my experience</p>
       </div>
     </section>
   );

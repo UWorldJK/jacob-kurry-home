@@ -280,6 +280,7 @@ p {
 }
 
 .manifest {
+  container-type: inline-size;
   margin-top: 24px;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -302,13 +303,19 @@ p {
 }
 
 .hero-name {
-  margin: 0.05em 0 0.12em 0.45em;
-  font-size: var(--fs-hero);
+  display: flex;
+  gap: 0 2ch;
+  margin: 12px 0 16px 4ch;
+  /* One line: both words are ~88ch wide, so size the type off the manifest's width. */
+  font-size: clamp(0.3rem, 1.75cqi, 1.05rem);
   font-weight: 700;
-  line-height: 0.92;
-  letter-spacing: -0.055em;
-  color: var(--moon);
-  text-shadow: 0 0 40px rgb(242 165 65 / 0.18);
+  line-height: 1.15;
+  color: var(--amber);
+}
+
+.hero-name pre {
+  margin: 0;
+  font: inherit;
 }
 
 .summary {
@@ -435,11 +442,6 @@ p {
   height: auto;
 }
 
-.diagram figcaption {
-  margin-top: 8px;
-  font-size: var(--fs-sm);
-}
-
 .node-box rect {
   fill: var(--panel);
   stroke: var(--rule);
@@ -465,6 +467,22 @@ p {
   fill: var(--amber);
 }
 
+.diagram .icon {
+  fill: var(--panel);
+  stroke: var(--moon);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.diagram .icon-label {
+  fill: var(--moon);
+  font-family: var(--mono);
+  font-size: 13px;
+  text-anchor: middle;
+}
+
 .wire {
   stroke: var(--rule);
   stroke-width: 1.5;
@@ -472,9 +490,8 @@ p {
   fill: none;
 }
 
-.wire-label {
+.diagram .legend {
   font-family: var(--mono);
-  text-anchor: middle;
 }
 
 .packet {
@@ -597,7 +614,21 @@ p {
 }
 
 .pods {
-  margin-bottom: 32px;
+  margin-bottom: 8px;
+}
+
+.pods tbody tr {
+  cursor: pointer;
+}
+
+.pods tbody tr:hover .pod-link {
+  color: var(--amber);
+}
+
+.watch-hint {
+  margin: 0 0 32px;
+  padding-left: 6px;
+  font-size: var(--fs-sm);
 }
 
 .pods tr.is-active td {
@@ -749,7 +780,7 @@ kbd {
   }
 
   .hero-name {
-    margin-left: 0.2em;
+    margin-left: 0;
   }
 
   .describe,
@@ -816,12 +847,3 @@ kbd {
   }
 }
 
-/* Name steps down to the right: "kurry" sits diagonally under "jacob". */
-.hero-name > span {
-  display: block;
-  white-space: nowrap;
-}
-
-.hero-name > span + span {
-  margin-left: 1.9em;
-}
